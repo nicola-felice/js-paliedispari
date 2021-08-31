@@ -21,9 +21,20 @@ function isEven(num) {
 
 let pariODispariUtente = prompt('inserisci (pari) o (dispari)');
 
+while ( pariODispariUtente !== "pari" && pariODispariUtente !== "dispari" ) {
+    pariODispariUtente = prompt('ERRORE!! inserisci (pari) o (dispari) correttamente');
+}
+
+
 let numeroUtente = parseInt(prompt('inserisci un numero tra 1 e 5'));
 
+while ( isNaN(numeroUtente) || numeroUtente > 5 || numeroUtente < 1) {
+    numeroUtente = parseInt(prompt('ERRORE!! inserisci un numero tra 1 e 5'));
+}
+
+
 let numeroCPU = getRandomArbitrary(1, 5);
+
 
 // print the result
 if ( isEven(numeroCPU + numeroUtente) && pariODispariUtente == "pari" ) {
@@ -34,7 +45,7 @@ if ( isEven(numeroCPU + numeroUtente) && pariODispariUtente == "pari" ) {
 
     alert(`DISPARI!! hai vinto, i due numeri erano TU(${numeroUtente}) CPU(${numeroCPU})`);
 
-} else if (isEven(numeroCPU + numeroUtente)) {
+} else if ( isEven(numeroCPU + numeroUtente) ) {
 
     alert(`PARI!! hai perso, i due numeri erano TU(${numeroUtente}) CPU(${numeroCPU})`);
 
@@ -43,3 +54,12 @@ if ( isEven(numeroCPU + numeroUtente) && pariODispariUtente == "pari" ) {
     alert(`DISPARI!! hai perso, i due numeri erano TU(${numeroUtente}) CPU(${numeroCPU})`);
 }
 
+
+
+
+// cose da aggiungere:
+    // un po di grafica html
+    // verifica validità input
+    // due pulsanti "animati" per pari o dispari
+    // metodo grafico per inserire numero
+    // possibilità di giocare senza refresh page
