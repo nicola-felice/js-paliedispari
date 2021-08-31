@@ -17,10 +17,25 @@ function isPalindrome(word) {
     return false;
 }
 
-let word = prompt('inserisci una parola');
 
-if (isPalindrome(word)) {
-    alert('la parola è palindroma');
-} else {
-    alert('la parola non è palindroma')
-}
+
+document.getElementById("verifyPalindrome").addEventListener('click', ()=> {
+
+    let word = document.getElementById("word").value;
+
+    // input validation
+    if ( !isNaN(word) || word == "" ) {
+        alert('ERRORE!! inserisci una parola');
+        document.getElementById("word").value = "";
+        return;
+    }
+
+    // check if the word is palindrome
+    if (isPalindrome(word)) {
+        alert('SI, la parola è palindroma');
+    } else {
+        alert('NO, la parola non è palindroma') 
+    }    
+
+    document.getElementById("word").value = "";
+});
